@@ -5,9 +5,9 @@
 #import <React/RCTBridgeModule.h>
 #endif  
 #import <Foundation/Foundation.h>
+#import <PushKit/PushKit.h>
 
-
-@interface RNVoipCall : NSObject <RCTBridgeModule>
+@interface RNVoipPushKit : NSObject <RCTBridgeModule>
 
 typedef void (^RNVoipPushNotificationCompletion)(void);
 
