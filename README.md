@@ -16,11 +16,154 @@ $ yarn add react-native-voip-call
 
 `$ react-native link react-native-voip-call`
 
-## Usage
 
-### 1. Background Integration
+## Usage of RNVoip Call
 
-### IOS
+#### `import this package as your needed places`
+
+```javascript
+  import RNVoipCal  from 'react-native-voip-call';
+```
+
+### 1. initialize Call (IOS Required)
+
+```javasript
+    let options = {
+      appName:'RNVoip App', // Required
+      imageName:  'logo',  //string (optional) in ios Resource Folder
+      ringtoneSound : '', //string (optional) If provided, it will be played when incoming calls received
+      includesCallsInRecents: false, // boolean (optional) If provided, calls will be shown in the recent calls 
+      supportsVideo : true //boolean (optional) If provided, whether or not the application supports video calling (Default: true)
+    }
+    // Initlize Call Kit IOS is Required
+    RNVoipCall.initializeCall(options).then(()=>{
+     //Success Call Back
+    }).catch(e=>console.log(e));
+
+```
+
+
+
+### 2. display Incomming Call
+
+```javascript
+
+    let callOptions = {
+      callerId:'825f4094-a674-4765-96a7-1ac512c02a71', // Important uuid must in this format
+       ios:{
+        phoneNumber:'12344', // Caller Mobile Number
+        name:'RNVoip', // caller Name
+        hasVideo:true
+       },
+       android:{
+        ringtuneSound: true, // defualt true
+        ringtune: 'ringtune', // add file inside Project_folder/android/app/res/raw
+        duration: 20000, // defualt 30000
+        vibration: true, // defualt is true
+        channel_name: 'call1asd', // 
+        notificationId: 1121,
+        notificationTitle: 'Incomming Call',
+        notificationBody: 'Some One is Calling...',
+        answerActionTitle: 'Answer',
+        declineActionTitle: 'Decline',
+       }
+     }
+
+     RNVoipCall.displayIncomingCall(callOptions).then((data)=>{
+       console.log(data)
+     }).catch(e=>console.log(e))
+
+```
+
+### 3. call End 
+
+   ```javascript
+     RNVoipCall.endCall(uuid); // End specific Call
+     RNVoipCall.endAllCalls(); // End All Calls
+   ```
+
+### 4. Call Answer Event
+
+```javascript
+      RNVoipCall.onCallAnswer(data => {
+          console.log(data);
+    });
+
+```
+
+### 5. Call End Event
+
+```javascript
+      RNVoipCall.onEndCall(data => {
+          console.log(data);
+    });
+
+```
+
+### 6.Check Call Active (Ios Only)
+
+```javascript 
+  RNVoipCall.isCallActive(uuid);
+```
+
+### 7. Event Listener (Ios only)
+
+```javascript 
+  RNVoipCall.addEventListener('didDisplayIncomingCall', ({ error, callUUID, handle, localizedCallerName, hasVideo, fromPushKit, payload }) => {
+  
+});
+
+RNVoipCall.addEventListener('didActivateAudioSession', () => {
+  // you might want to do following things when receiving this event:
+  // - Start playing ringback if it is an outgoing call
+});
+
+RNVoipCall.addEventListener('didPerformSetMutedCallAction', ({ muted, callUUID }) => {
+
+});
+
+```
+
+### 8. call back on android app in background state (Android only)
+
+```javascript
+RNVoipCall.getInitialNotificationActions().then(data=>console.log(data))
+ .catch(e=>console.log(e));
+```
+### 9. Event Listener (Android only)
+
+```javascript
+
+    //app open Automatically when Call recived
+    RNVoipCall.onCallOpenAppEvent(event => {
+    
+    });
+    // on click call Notification
+    RNVoipCall.onCallNotificationOpen(event => {
+     
+    });
+    missed call notification taped
+    RNVoipCall.onMissedCallOpen(event => {
+      
+    });
+
+```
+
+### 10. Play and stop ringtune (Android only)
+
+```javascript
+       RNVoipCall.playRingtune("ringtune",true); // param1 -> name of the ringtune in inside Project_folder/android/app/res/raw , param2 -> play ringtune as loop 
+       RNVoipCall.stopRingtune();
+
+```
+
+
+
+
+
+## Usage (Background Integration)
+
+### 1. IOS
 
 
 ##### 1.1 Configure Voip Service to App
@@ -195,7 +338,7 @@ export default IosPushKitHandler;
 7. send push [sendPush.php](https://github.com/ajith-ab/react-native-voip-call/blob/master/server/sendPush.php)
 
 
-### Android
+### 2. Android
 
 #### Configure and install below 2 packages 
 
