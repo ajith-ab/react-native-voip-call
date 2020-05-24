@@ -189,4 +189,4 @@ export default IosPushKitHandler;
 
 6. Create pem file for push please Refer [generate Cretificate](https://support.qiscus.com/hc/en-us/articles/360023340734-How-to-Create-Certificate-pem-for-Pushkit-) , [convert p12 to pem](https://stackoverflow.com/questions/40720524/how-to-send-push-notifications-to-test-ios-pushkit-integration-online)
 
-7. 
+7. send push [sendPush.php](https://github.com/ajith-ab/react-native-voip-call/blob/master/server/sendPush.php)
