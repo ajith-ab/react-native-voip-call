@@ -7,8 +7,6 @@ import {
 } from 'react-native';
 import RNVoipCall, { RNVoipPushKit } from 'react-native-voip-call';
 
-
-
 const IsIos = Platform.OS === 'ios';
 
 const log = (data) => console.log('RNVoipCall===> ',data);
