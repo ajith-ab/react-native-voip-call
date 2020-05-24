@@ -18,7 +18,10 @@ $ yarn add react-native-voip-call
 
 ## Usage
 
-### 1. Background Push Kit Notification For Ios
+### 1. Background Integration
+
+### IOS
+
 
 ##### 1.1 Configure Voip Service to App
  
@@ -190,3 +193,86 @@ export default IosPushKitHandler;
 6. Create pem file for push please Refer [generate Cretificate](https://support.qiscus.com/hc/en-us/articles/360023340734-How-to-Create-Certificate-pem-for-Pushkit-) , [convert p12 to pem](https://stackoverflow.com/questions/40720524/how-to-send-push-notifications-to-test-ios-pushkit-integration-online)
 
 7. send push [sendPush.php](https://github.com/ajith-ab/react-native-voip-call/blob/master/server/sendPush.php)
+
+
+### Android
+
+#### Configure and install below 2 packages 
+
+```bash
+# Install & setup the app module
+yarn add @react-native-firebase/app
+
+# Install the messaging module
+yarn add @react-native-firebase/messaging
+
+# If you're developing your app using iOS, run this command
+cd ios/ && pod install
+
+```
+
+<b> Installation</b>
+1. [@react-native-firebase/app](https://rnfirebase.io/)
+2. [@react-native-firebase/messaging](https://rnfirebase.io/messaging/usage)
+
+Add the below code to `index.js` in Root folder
+
+```javascript
+
+import messaging from '@react-native-firebase/messaging';
+import RNVoipCall from 'react-native-voip-call';
+
+messaging().setBackgroundMessageHandler(async remoteMessage => {
+  console.log('Message handled in the background!', remoteMessage);
+  if(Platform.OS === 'android'){
+    let data;
+    if(remoteMessage.data){
+      data = remoteMessage.data;
+    }
+   if(data && data.type === 'call' && data.uuid){
+      let callOptions = {
+         callerId:data.uuid, // Important uuid must in this format
+         ios:{
+          phoneNumber:'12344', // Caller Mobile Number
+          name: data.name, // caller Name
+          hasVideo:true
+         },
+         android:{
+          ringtuneSound: true, // defualt true
+          ringtune: 'ringtune', // add file inside Project_folder/android/app/res/raw --Formats--> mp3,wav
+          duration: 30000, // defualt 30000
+          vibration: true, // defualt is true
+          channel_name: 'call', // 
+          notificationId: 1123,
+          notificationTitle: 'Incomming Call',
+          notificationBody: data.name + ' is Calling...',
+          answerActionTitle: 'Answer',
+          declineActionTitle: 'Decline',
+         }
+       }
+       RNVoipCall.displayIncomingCall(callOptions).then((data)=>{
+        console.log(data)
+      }).catch(e=>console.log(e))
+    }
+  }
+});
+
+
+```
+`push payload`
+
+```Json
+{
+  "to":"asgvdsdjhsfdsfd....", //device token
+  "data":{
+     "uuid":"uuid of user",
+     "name":"RNVoip",
+     "type":"call" // to identify reciving call Notification
+     
+  }
+  
+}
+```
+
+
+
