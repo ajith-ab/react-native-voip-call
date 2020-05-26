@@ -22,6 +22,7 @@
 		7449E989A297D7A07B4F5DDB /* libPods-example-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 778923010ECEF34728137083 /* libPods-example-tvOS.a */; };
 		B85C4B2A247D881700A813FD /* CallKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85C4B29247D881700A813FD /* CallKit.framework */; };
 		B85C4B2C247D882600A813FD /* Intents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85C4B2B247D882500A813FD /* Intents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		B85C4B2E247D927B00A813FD /* PushKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B85C4B2D247D927A00A813FD /* PushKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		B617D614435B820213BD7418 /* Pods-example-exampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example-exampleTests.debug.xcconfig"; path = "Target Support Files/Pods-example-exampleTests/Pods-example-exampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B85C4B29247D881700A813FD /* CallKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CallKit.framework; path = System/Library/Frameworks/CallKit.framework; sourceTree = SDKROOT; };
 		B85C4B2B247D882500A813FD /* Intents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Intents.framework; path = System/Library/Frameworks/Intents.framework; sourceTree = SDKROOT; };
+		B85C4B2D247D927A00A813FD /* PushKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PushKit.framework; path = System/Library/Frameworks/PushKit.framework; sourceTree = SDKROOT; };
 		C1E1F89C09E40E865209E699 /* libPods-example-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-example-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF2CC97AB98326B6BCDC423C /* Pods-example-exampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example-exampleTests.release.xcconfig"; path = "Target Support Files/Pods-example-exampleTests/Pods-example-exampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		D86A8AEC5705E4FA4FF901E3 /* Pods-example-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-example-tvOSTests/Pods-example-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B85C4B2E247D927B00A813FD /* PushKit.framework in Frameworks */,
 				B85C4B2C247D882600A813FD /* Intents.framework in Frameworks */,
 				B85C4B2A247D881700A813FD /* CallKit.framework in Frameworks */,
 				3E8990A1E99338D7AEC47029 /* libPods-example.a in Frameworks */,
@@ -145,6 +148,7 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B85C4B2D247D927A00A813FD /* PushKit.framework */,
 				B85C4B2B247D882500A813FD /* Intents.framework */,
 				B85C4B29247D881700A813FD /* CallKit.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,

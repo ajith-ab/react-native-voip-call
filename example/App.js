@@ -1,10 +1,10 @@
 import React, {useEffect, useState } from 'react';
 import {
-  View,
   Text,
   Platform,
   Button,
-  StyleSheet
+  StyleSheet,
+  SafeAreaView
 } from 'react-native';
 import RNVoipCall, { RNVoipPushKit } from 'react-native-voip-call';
 
@@ -148,7 +148,7 @@ const App = () => {
   
   
   return (
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Text>
           {"push kit token:" + pushkitToken}
         </Text>
@@ -160,7 +160,7 @@ const App = () => {
         <Button title="Show MissedCall" onPress={() => showMissedCall()} />
         <Button title="Play Ringtune (Android only)" onPress={() => playRingtune()} />
         <Button title="stop Ringtune (Android only)" onPress={() => stopRingtune()} />
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -13,8 +13,6 @@ $ yarn add react-native-voip-call
 ```
 
 
-
-
 ### Mostly automatic installation RN < 0.60.x
 
 `$ react-native link react-native-voip-call`
@@ -30,7 +28,7 @@ Link required libraries
 
  Add `CallKit.framework` and `Intents.framework` (and mark it Optional).
 
-
+![alt text](https://github.com/ajith-ab/react-native-voip-call/blob/master/doc/ios-add.png)
 
 ## Usage of RNVoip Call
 
@@ -431,3 +429,9 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
   
 }
 ```
+### Donate
+
+<p><a href="https://www.paypal.me/ajithab" rel="nofollow"><img height="75" src="https://raw.githubusercontent.com/stefan-niedermann/paypal-donate-button/master/paypal-donate-button.png" style="max-width:100%;"></a></p>
+
+### Author
+[Ajith A B](https://www.linkedin.com/in/ajith-a-b-a61303197)
