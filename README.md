@@ -12,6 +12,9 @@ $ npm install react-native-voip-call --save
 $ yarn add react-native-voip-call
 ```
 
+
+
+
 ### Mostly automatic installation RN < 0.60.x
 
 `$ react-native link react-native-voip-call`
