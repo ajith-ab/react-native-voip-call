@@ -12,9 +12,24 @@ $ npm install react-native-voip-call --save
 $ yarn add react-native-voip-call
 ```
 
+
+
+
 ### Mostly automatic installation RN < 0.60.x
 
 `$ react-native link react-native-voip-call`
+
+
+### ios Installation
+```bash
+$ cd ios && pod install
+```
+
+Link required libraries
+ Click on `Build Phases` tab, then open `Link Binary With Libraries`.
+
+ Add `CallKit.framework` and `Intents.framework` (and mark it Optional).
+
 
 
 ## Usage of RNVoip Call
