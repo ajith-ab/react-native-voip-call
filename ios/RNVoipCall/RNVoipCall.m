@@ -2,7 +2,7 @@
 //  RNVoipCall.m
 //  RNVoipCall
 //
-//  Copyright 2016-2019 The CallKeep Authors (see the AUTHORS file)
+//  Copyright 2019 Ajith A B The  Authors (see the AUTHORS file)
 //  SPDX-License-Identifier: ISC, MIT
 //
 
@@ -492,7 +492,7 @@ RCT_EXPORT_METHOD(showMissedCallNotification:
 {
         if(!callAttended){
             [RNVoipCall endCallWithUUID: uuidString reason:3];
-              [RNVoipCall sendMissedCallNotification:callerName body:[@"You Have Missed Call from " stringByAppendingString:callerName]];
+//              [RNVoipCall sendMissedCallNotification:callerName body:[@"You Have Missed Call from " stringByAppendingString:callerName]];
             callerName = @"";
             callerId = @"";
         }
@@ -752,9 +752,9 @@ RCT_EXPORT_METHOD(reportUpdatedCall:(NSString *)uuidString contactIdentifier:(NS
     NSLog(@"[RNVoipCall][CXProviderDelegate][provider:performEndCallAction]%@", action);
 #endif
     
-    if(!callAttended){
-        [RNVoipCall sendMissedCallNotification:callerName body:[@"You Have Missed Call from " stringByAppendingString:callerName]];
-    }
+//    if(!callAttended){
+//        [RNVoipCall sendMissedCallNotification:callerName body:[@"You Have Missed Call from " stringByAppendingString:callerName]];
+//    }
     callerName = @"";
     callerId = @"";
     callAttended = FALSE;
