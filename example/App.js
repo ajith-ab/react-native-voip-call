@@ -3,13 +3,30 @@ import {
   View,
   Text,
   Platform,
-  Button
+  Button,
+  StyleSheet
 } from 'react-native';
 import RNVoipCall, { RNVoipPushKit } from 'react-native-voip-call';
 
 const IsIos = Platform.OS === 'ios';
 
 const log = (data) => console.log('RNVoipCall===> ',data);
+
+
+let options = {
+  appName:'RNVoip App', // Required
+  imageName:  'logo',  //string (optional) in ios Resource Folder
+  ringtoneSound : '', //string (optional) If provided, it will be played when incoming calls received
+  includesCallsInRecents: false, // boolean (optional) If provided, calls will be shown in the recent calls 
+  supportsVideo : true //boolean (optional) If provided, whether or not the application supports video calling (Default: true)
+}
+// Initlize Call Kit IOS is Required
+RNVoipCall.initializeCall(options).then(()=>{
+ //Success Call Back
+}).catch(e=>console.log(e));
+
+
+
 
 
 const App = () => {
@@ -59,7 +76,11 @@ const App = () => {
   
   const callKit = () => { 
     let options = {
-      appName:'RNVoip App',
+      appName:'RNVoip App', // Required
+      imageName:  'logo',  //string (optional) in ios Resource Folder
+      ringtoneSound : '', //string (optional) If provided, it will be played when incoming calls received
+      includesCallsInRecents: false, // boolean (optional) If provided, calls will be shown in the recent calls 
+      supportsVideo : true //boolean (optional) If provided, whether or not the application supports video calling (Default: true)
     }
     // Initlize Call Kit IOS is Required
     RNVoipCall.initializeCall(options).then(()=>{
@@ -102,26 +123,68 @@ const App = () => {
   
   
   const showMissedCall = () => {
-    RNVoipCall.showMissedCallNotification("title","body");
+    RNVoipCall.showMissedCallNotification("title","body","user-id");
+  }
+  
+  const stopCallNotification = () => {
+    RNVoipCall.endAllCalls();
+  }
+  
+  const playRingtune = () => {
+    if(!IsIos){
+      let options = { 
+        fileName: 'filename', // file inside android/app/src/main/res/raw 
+        loop:true // looping the Ringtune
+      }
+      RNVoipCall.playRingtune(options.fileName, options.loop);   
+    }
+  }
+  
+  const stopRingtune = () => {
+    if(!IsIos){
+      RNVoipCall.stopRingtune();
+    }
   }
   
   
-  
-  
   return (
-      <View>
+      <View style={styles.container}>
         <Text>
           {"push kit token:" + pushkitToken}
         </Text>
         <Text>{`call Status: ${callStatus}`}</Text>
         <Button onPress={()=>displayIncommingCall()} title="Show Incomming Call" />
         <Button onPress={()=>showMissedCall()} title="Show Missed Call" />
-      </View>
+        <Button title="end Call " onPress={() => stopCallNotification()} />
+        
+        <Button title="Show MissedCall" onPress={() => showMissedCall()} />
+        <Button title="Play Ringtune (Android only)" onPress={() => playRingtune()} />
+        <Button title="stop Ringtune (Android only)" onPress={() => stopRingtune()} />
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+    justifyContent: 'space-between',
+    maxHeight:'70%'
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 1,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 0,
+  },
+  button: {
+    margin: 2
+  }
 });
 
 export default App;
