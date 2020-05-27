@@ -424,6 +424,7 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
 {
   "to":"asgvdsdjhsfdsfd....", //device token
   "data":{
+    "priority":"high", // Android required for background Notification
      "uuid":"uuid of user",
      "name":"RNVoip",
      "type":"call" // to identify reciving call Notification
@@ -437,7 +438,7 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
 
 ios | Android  | android( Lockscreen)
 --- | --- | ---
-<img height="75" src="https://github.com/ajith-ab/react-native-voip-call/blob/master/doc/ios1.jpeg" style="max-width:100%;"> | <img height="75" src="https://github.com/ajith-ab/react-native-voip-call/blob/master/doc/android-1.jpeg" style="max-width:100%;"> | <img height="75" src="https://github.com/ajith-ab/react-native-voip-call/blob/master/doc/android-2.jpeg" style="max-width:100%;">
+<img height="500" src="https://github.com/ajith-ab/react-native-voip-call/blob/master/doc/ios1.jpeg" style="max-width:100%;"> | <img height="500" src="https://github.com/ajith-ab/react-native-voip-call/blob/master/doc/android-1.jpeg" style="max-width:100%;"> | <img height="500" src="https://github.com/ajith-ab/react-native-voip-call/blob/master/doc/android-2.jpeg" style="max-width:100%;">
 
 
 ### Donate
