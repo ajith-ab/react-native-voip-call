@@ -23,7 +23,25 @@
   },
   "homepage": "https://github.com/ajith-ab/react-native-voip-call/blob/master/README.md",
   "keywords": [
-    "react-native"
+    "react-native",
+    "android",
+    "ios",
+    "video call",
+    "webrtc",
+    "facebook messenger",
+    "whats app",
+    "whats app like call",
+    "facebook messenger like call",
+    "call notification",
+    "android call notification",
+    "voip",
+    "voip video call",
+    "voip call screen",
+    "voip call notification",
+    "voip push notification",
+    "apple push kit",
+    "apple push kit payload",
+    "firebase background notification"
   ],
   "peerDependencies": {
     "react-native": "^0.41.2"

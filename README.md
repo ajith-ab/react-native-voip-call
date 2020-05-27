@@ -434,7 +434,7 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
 }
 ```
 
-### example
+### Demo
 
 ios | Android  | android( Lockscreen)
 --- | --- | ---
