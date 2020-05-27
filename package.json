@@ -1,6 +1,6 @@
 {
   "name": "react-native-voip-call",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "description": "webrtc background supported call notifications",
   "main": "index.js",
   "scripts": {
