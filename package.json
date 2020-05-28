@@ -1,6 +1,6 @@
 {
   "name": "react-native-voip-call",
-  "version": "1.0.13",
+  "version": "1.1.0",
   "description": "webrtc background supported call notifications",
   "main": "index.js",
   "scripts": {
@@ -44,7 +44,6 @@
     "firebase background notification"
   ],
   "peerDependencies": {
-    "react-native": "^0.41.2"
-
+    "react-native": "^0.60.0"
   }
 }

@@ -28,14 +28,14 @@ Link required libraries
 
  Add `CallKit.framework` and `Intents.framework` (and mark it Optional).
 
-![alt text](https://github.com/ajith-ab/react-native-voip-call/blob/master/doc/ios-add.png)
+![alt text](https://raw.githubusercontent.com/ajith-ab/react-native-voip-call/master/doc/ios-add.png)
 
 ## Usage of RNVoip Call
 
 #### `import this package as your needed places`
 
 ```javascript
-  import RNVoipCal  from 'react-native-voip-call';
+  import RNVoipCall  from 'react-native-voip-call';
 ```
 
 ### 1. initialize Call (IOS Required)
@@ -189,7 +189,7 @@ RNVoipCall.getInitialNotificationActions().then(data=>console.log(data))
 2.2 )`Capability` -> `Push Notifications`
 2.3) Add `PushKit.framework`
 
-![alt text](https://github.com/ajith-ab/react-native-voip-call/blob/master/doc/ios-pushkit.png)
+![alt text](https://raw.githubusercontent.com/ajith-ab/react-native-voip-call/blob/master/doc/ios-pushkit.png)
 
 3. Add Following Code to `Xcode -> project_folder -> AppDelegate.m`
 
@@ -438,7 +438,7 @@ messaging().setBackgroundMessageHandler(async remoteMessage => {
 
 ios | Android  | android( Lockscreen)
 --- | --- | ---
-<img height="500" src="https://github.com/ajith-ab/react-native-voip-call/blob/master/doc/ios1.jpeg" style="max-width:100%;"> | <img height="500" src="https://github.com/ajith-ab/react-native-voip-call/blob/master/doc/android-1.jpeg" style="max-width:100%;"> | <img height="500" src="https://github.com/ajith-ab/react-native-voip-call/blob/master/doc/android-2.jpeg" style="max-width:100%;">
+<img height="500" src="https://raw.githubusercontent.com/ajith-ab/react-native-voip-call/master/doc/ios1.jpeg" style="max-width:100%;"> | <img height="500" src="https://raw.githubusercontent.com/ajith-ab/react-native-voip-call/master/doc/android-1.jpeg" style="max-width:100%;"> | <img height="500" src="https://raw.githubusercontent.com/ajith-ab/react-native-voip-call/master/doc/android-2.jpeg" style="max-width:100%;">
 
 
 ### Donate

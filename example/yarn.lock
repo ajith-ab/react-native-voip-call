@@ -4961,10 +4961,10 @@ react-is@^16.12.0, react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
-react-native-voip-call@^1.0.12:
-  version "1.0.12"
-  resolved "https://registry.yarnpkg.com/react-native-voip-call/-/react-native-voip-call-1.0.12.tgz#754ffd6a25cb931b1e6676e77fafeabbde1fef9c"
-  integrity sha512-GK92mnX1p0RatuDHtLhPFig4rQOry1Q3alvKn6sxLCfMH4K4aNfC9atCZ+0M51MU+uj4yEL1wveyJhj1E/fxPg==
+react-native-voip-call@^1.0.16:
+  version "1.0.16"
+  resolved "https://registry.yarnpkg.com/react-native-voip-call/-/react-native-voip-call-1.0.16.tgz#eb2e0cf6291488816a45dd6c3ef6dfc1344c0c4d"
+  integrity sha512-fb97tZRkzt31xYS67THNcT9CwXWgG0CH7JD4+90zTxqyHPNq6BxeN3GuhOy3l0S8XVvXfnuD8o1eCZvPtJ5rxQ==
 
 react-native@0.62.2:
   version "0.62.2"
