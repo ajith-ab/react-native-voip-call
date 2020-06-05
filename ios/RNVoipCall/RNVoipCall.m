@@ -295,7 +295,9 @@ RCT_EXPORT_METHOD(isCallActive:(NSString *)uuidString)
 //missed Call Notification
 RCT_EXPORT_METHOD(showMissedCallNotification:
                   (NSString *)title
-                  :(NSString *) body)
+                  :(NSString *) body
+                  :(NSString *) uuid
+                  )
 {
     
     [RNVoipCall sendMissedCallNotification:title body:body];
@@ -370,6 +372,14 @@ RCT_EXPORT_METHOD(showMissedCallNotification:
     }
     return false;
 }
+
++ (void)showMissedCallNotification:(NSString *)title
+                              body:(NSString *)body
+                              uuid:(NSString *)uuid
+{
+    [RNVoipCall sendMissedCallNotification:title body:body];
+}
+
 
 + (void)endCallWithUUID:(NSString *)uuidString
                  reason:(int)reason

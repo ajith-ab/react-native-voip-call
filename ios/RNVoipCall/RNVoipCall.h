@@ -43,4 +43,8 @@ continueUserActivity:(NSUserActivity *)userActivity
 
 + (BOOL)isCallActive:(NSString *)uuidString;
 
++ (void)showMissedCallNotification:(NSString *)title
+                              body:(NSString *)body
+                              uuid:(NSString *)uuid;
+
 @end
