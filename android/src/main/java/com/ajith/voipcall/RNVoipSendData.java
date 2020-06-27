@@ -54,32 +54,36 @@ public class RNVoipSendData {
     }
 
     public  void sentEventToJsModule(Intent intent){
-        String action = intent.getAction();
-        WritableMap params = Arguments.createMap();
-        params.putString("action",action);
-        params.putInt("notificationId", intent.getIntExtra("notificationId", 0));
-        switch (action){
-            case "callAnswer":
-                params.putString("callerId", intent.getStringExtra("callerId"));
-                sendEvent(mReactContext,"RNVoipCallPerformAnswerCallAction", params);
-                break;
-            case "fullScreenIntent":
-                params.putString("callerId", intent.getStringExtra("callerId"));
-                sendEvent(mReactContext,"RNVoipCallFullScreenIntent", params);
-                break;
-            case "contentTap":
-                params.putString("callerId", intent.getStringExtra("callerId"));
-                sendEvent(mReactContext,"RNVoipCallNotificationTap", params);
-                break;
-            case "callDismiss":
-                sendEvent(mReactContext,"RNVoipCallPerformEndCallAction", params);
-                break;
-            case "missedCallTape":
-                params.putString("callerId", intent.getStringExtra("callerId"));
-                sendEvent(mReactContext,"RNVoipCallMissedCallTap", params);
-                break;
-            default:
-                break;
+        try{
+            String action = intent.getAction();
+            WritableMap params = Arguments.createMap();
+            params.putString("action",action);
+            params.putInt("notificationId", intent.getIntExtra("notificationId", 0));
+            switch (action){
+                case "callAnswer":
+                    params.putString("callerId", intent.getStringExtra("callerId"));
+                    sendEvent(mReactContext,"RNVoipCallPerformAnswerCallAction", params);
+                    break;
+                case "fullScreenIntent":
+                    params.putString("callerId", intent.getStringExtra("callerId"));
+                    sendEvent(mReactContext,"RNVoipCallFullScreenIntent", params);
+                    break;
+                case "contentTap":
+                    params.putString("callerId", intent.getStringExtra("callerId"));
+                    sendEvent(mReactContext,"RNVoipCallNotificationTap", params);
+                    break;
+                case "callDismiss":
+                    sendEvent(mReactContext,"RNVoipCallPerformEndCallAction", params);
+                    break;
+                case "missedCallTape":
+                    params.putString("callerId", intent.getStringExtra("callerId"));
+                    sendEvent(mReactContext,"RNVoipCallMissedCallTap", params);
+                    break;
+                default:
+                    break;
+            }
+        }catch(NullPointerException e){
+            
         }
     }
 
