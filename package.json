@@ -1,6 +1,6 @@
 {
-  "name": "react-native-voip-call",
-  "version": "1.1.1",
+  "name": "@csoft-tech/react-native-voip-call",
+  "version": "1.0.0",
   "description": "webrtc background supported call notifications",
   "main": "index.js",
   "scripts": {
@@ -8,42 +8,16 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ajith-ab/react-native-voip-call.git"
+    "url": "git+https://github.com/csoft-tech/react-native-voip-call.git"
   },
-  "author": "Ajith A B",
-  "maintainers": [
-    "See AUTHORS file"
-  ],
-  "contributors": [
-    "See AUTHORS file"
-  ],
+  "author": "csoft-tech",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/react-native-webrtc/react-native-voip-call/issues"
+    "url": "https://github.com/csoft-tech/react-native-voip-call.git/issues"
   },
-  "homepage": "https://github.com/ajith-ab/react-native-voip-call/blob/master/README.md",
-  "keywords": [
-    "react-native",
-    "android",
-    "ios",
-    "video call",
-    "webrtc",
-    "facebook messenger",
-    "whats app",
-    "whats app like call",
-    "facebook messenger like call",
-    "call notification",
-    "android call notification",
-    "voip",
-    "voip video call",
-    "voip call screen",
-    "voip call notification",
-    "voip push notification",
-    "apple push kit",
-    "apple push kit payload",
-    "firebase background notification"
-  ],
+  "homepage": "https://github.com/csoft-tech/react-native-voip-call/blob/master/README.md",
   "peerDependencies": {
     "react-native": "^0.60.0"
-  }
+  },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
 }

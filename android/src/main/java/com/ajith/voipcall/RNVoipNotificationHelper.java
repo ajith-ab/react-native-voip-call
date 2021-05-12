@@ -14,6 +14,8 @@ import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.util.Log;
+import android.widget.RemoteViews;
+import android.widget.TextView;
 
 import com.facebook.react.bridge.ReadableMap;
 
@@ -21,6 +23,7 @@ public class RNVoipNotificationHelper {
     public final String callChannel = "Call";
     public  final  String notificationChannel = "NotificationChannel";
     private Context context;
+    public TextView newText;
 
 
     public RNVoipNotificationHelper(Application context){
@@ -61,6 +64,20 @@ public class RNVoipNotificationHelper {
 
         Uri sounduri = Uri.parse("android.resource://" + context.getPackageName() + "/"+ R.raw.nosound);
 
+        RemoteViews notificationLayout = new RemoteViews(context.getPackageName(), R.layout.layout);
+        
+        /**Decline button */
+        notificationLayout.setOnClickPendingIntent(R.id.btnDecline, callDismissIntent);
+        notificationLayout.setTextViewText(R.id.btnDecline, json.getString("declineActionTitle"));
+
+        /**Accept button */
+        notificationLayout.setOnClickPendingIntent(R.id.btnAccept, getPendingIntent(notificationID, "callAnswer",json));
+        notificationLayout.setTextViewText(R.id.btnAccept, json.getString("answerActionTitle"));
+        
+        /**Notification title */
+        notificationLayout.setTextViewText(R.id.txtTitle, json.getString("notificationBody"));
+
+        /**Build a notification */
         Notification notification = new NotificationCompat.Builder(context,callChannel)
                 .setAutoCancel(true)
                 .setDefaults(0)
@@ -75,8 +92,8 @@ public class RNVoipNotificationHelper {
                 .setContentTitle(json.getString("notificationTitle"))
                 .setSound(sounduri)
                 .setContentText(json.getString("notificationBody"))
-                .addAction(0, json.getString("answerActionTitle"), getPendingIntent(notificationID, "callAnswer",json))
-                .addAction(0, json.getString("declineActionTitle"), callDismissIntent)
+                .setStyle(new NotificationCompat.DecoratedCustomViewStyle())
+                .setCustomContentView(notificationLayout)
                 .build();
 
         NotificationManager notificationManager = notificationManager();
