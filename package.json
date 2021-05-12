@@ -1,5 +1,5 @@
 {
-  "name": "@csoft-tech/react-native-voip-call",
+  "name": "react-native-voip-call",
   "version": "1.0.0",
   "description": "webrtc background supported call notifications",
   "main": "index.js",
@@ -19,5 +19,5 @@
   "peerDependencies": {
     "react-native": "^0.60.0"
   },
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  "publishConfig": { "registry": "https://npm.pkg.github.com/@csoft-tech" }
 }
