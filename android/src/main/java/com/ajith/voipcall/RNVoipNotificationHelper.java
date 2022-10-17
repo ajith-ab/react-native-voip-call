@@ -60,7 +60,8 @@ public class RNVoipNotificationHelper {
         dissmissIntent.putExtra("callerId", json.getString("callerId"));
         dissmissIntent.putExtra("missedCallTitle", json.getString("missedCallTitle"));
         dissmissIntent.putExtra("missedCallBody", json.getString("missedCallBody"));
-        PendingIntent callDismissIntent = PendingIntent.getBroadcast(context,0, dissmissIntent ,PendingIntent.FLAG_UPDATE_CURRENT);
+        // PendingIntent callDismissIntent = PendingIntent.getBroadcast(context,0, dissmissIntent ,PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent callDismissIntent = PendingIntent.getBroadcast(context,0, dissmissIntent ,PendingIntent.FLAG_IMMUTABLE);
 
         Uri sounduri = Uri.parse("android.resource://" + context.getPackageName() + "/"+ R.raw.nosound);
 
@@ -126,7 +127,8 @@ public class RNVoipNotificationHelper {
         intent.putExtra("callerId", json.getString("callerId"));
         intent.putExtra("action", type);
         intent.setAction(type);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, notificationID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        // PendingIntent pendingIntent = PendingIntent.getActivity(context, notificationID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, notificationID, intent, PendingIntent.FLAG_IMMUTABLE);
         return pendingIntent;
     }
 
@@ -143,7 +145,8 @@ public class RNVoipNotificationHelper {
         intent.putExtra("notificationId",missNotification);
         intent.putExtra("callerId", callerId);
         intent.setAction("missedCallTape");
-        PendingIntent contentIntent = PendingIntent.getActivity(context, missNotification, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        // PendingIntent contentIntent = PendingIntent.getActivity(context, missNotification, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent contentIntent = PendingIntent.getActivity(context, missNotification, intent, PendingIntent.FLAG_IMMUTABLE);
 
         Notification notification = new NotificationCompat.Builder(context, notificationChannel)
                 .setContentTitle(title)
